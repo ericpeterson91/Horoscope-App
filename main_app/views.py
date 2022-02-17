@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 # import uuid
 # import boto3
-from .models import Photo, Profile
+from .models import  Profile
 
 # S3_BASE_URL = 'https://s3-ca-central-1.amazonaws.com/' 
 # BUCKET = 'astro-club-bucket'
