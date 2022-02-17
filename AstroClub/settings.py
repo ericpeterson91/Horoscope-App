@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middlware.WhiteNoiseMiddleware',
+    # 'whitenoise.middlware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'AstroClub.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'astroclubdb',
-        'USER': 'postgres',
-        'PASSWORD': '12345'
+        'NAME': 'astroclubdb'
+        # 'USER': 'postgres',
+        # 'PASSWORD': '12345'
     }
 }
 
