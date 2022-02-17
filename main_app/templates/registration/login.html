@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h4 class="started" style="font-size: 28px; margin-bottom: 40px;">Log in</h4>
+
+<form class="intro-form" action="{% url 'profile' %}" method="post">
+    <input class="intro-input" type="text" placeholder="User Name...">
+    <input class="intro-input" type="text" placeholder="Password...">
+    <input class="intro-submit" type="submit" value="Submit">
+</form>
+
+
+
+<!-- <h1>Log in</h1>
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn" value="login">
+    <input type="hidden" name="next" value="{{ next }}">
+</form> -->
+
+<br>
+<a href="{% url 'profile' %}">Profile (Here temporarily)</a>
+{% endblock %}

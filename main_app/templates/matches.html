@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div style="text-align: center; font-size: 24px; letter-spacing: 4.8px; margin-top: 48px;">
+    Personal matches
+</div>
+
+<div class="match-container">
+    <div class="match-card">
+        <img src="{% static 'images/checkmark.svg' %}" alt="">
+        <p>Sebastian</p>
+        <p>Match 1</p>
+        <p>IG handle</p>
+
+    </div>
+    <div class="match-card">
+        <img src="{% static 'images/checkmark.svg' %}" alt="">
+        <p>Don</p>
+        
+        <p>Match 2</p>
+        <p>IG handle</p>
+    </div>
+    <div class="match-card">
+        <img src="{% static 'images/checkmark.svg' %}" alt="">
+        <p>Frank</p>
+        <p>Match 3</p>
+        <p>IG handle</p>
+    </div>
+</div>
+
+<div class="bottom-nav-container">
+    <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
+    <div><a class="nav" href="{% url 'profile' %}">PROFILE</a></div>
+    <div><a class="nav" href="">LOG OUT</a></div>
+</div>
+
+
+{% endblock %}

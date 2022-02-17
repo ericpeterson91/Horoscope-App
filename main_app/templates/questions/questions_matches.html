@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<img class="check" src="{% static 'images/checkmark.svg' %}" alt="">
+
+<div style="text-align: center; font-size: 24px;"><span style="font-weight: bold;">Woohoo!</span><br>
+    Here are your matches!
+</div>
+
+<div class="match-container">
+    <div class="match-card">
+        <img src="{% static 'images/checkmark.svg' %}" alt="">
+        <p>Sebastian</p>
+        <p>Match 1</p>
+        <p>IG handle</p>
+
+    </div>
+    <div class="match-card">
+        <img src="{% static 'images/checkmark.svg' %}" alt="">
+        <p>Don</p>
+        
+        <p>Match 2</p>
+        <p>IG handle</p>
+    </div>
+    <div class="match-card">
+        <img src="{% static 'images/checkmark.svg' %}" alt="">
+        <p>Frank</p>
+        <p>Match 3</p>
+        <p>IG handle</p>
+    </div>
+</div>
+
+<div class="skip-container">
+    <a href="{% url 'profile' %}"><button style="width: 201px;"class="started-button">Go to Profile</button></a>
+</div>
+
+
+{% endblock %}

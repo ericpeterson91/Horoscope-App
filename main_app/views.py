@@ -1,0 +1,175 @@
+from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+# import uuid
+# import boto3
+from .models import Photo, Profile
+
+# S3_BASE_URL = 'https://s3-ca-central-1.amazonaws.com/' 
+# BUCKET = 'astro-club-bucket'
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('/profile/new')
+    else:
+      error_message = 'Invalid credentials - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
+
+@login_required
+def profile(request):
+  profile = Profile.objects.get(user = request.user)
+  print('this is my profile', profile.profile_pic)
+  return render(request, 'accounts/profile.html', { 'profile': profile, 'user': request.user })
+
+class ProfileCreate(LoginRequiredMixin, CreateView):
+    model = Profile
+    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles', 'horoscope']
+    success_url = '/questions/questions_one/'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = Profile
+    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles', 'horoscope']
+    success_url = '/profile/'
+
+class ProfileDelete(DeleteView):
+  model = Profile
+  success_url = '/profile/new'
+
+@login_required
+def add_photo(request):
+    # photo-file will be the "name" attribute on the <input type="file">
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        # need a unique "key" for S3 / needs image file extension too
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            s3.upload_fileobj(photo_file, BUCKET, key)
+            # build the full url string
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            # we can assign to cat_id or cat (if you have a cat object)
+            photo = Photo(url=url)
+            photo.save()
+        except:
+            print('An error occurred uploading file to S3')
+    return redirect('/profile/')
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+def home(request):
+    return render(request, 'home.html')
+
+# def profile(request):
+#     return render(request, 'profile.html')
+@login_required
+def profile(request):
+    profile = Profile.objects.get(user = request.user)
+    return render(request, 'profile.html', {
+        "profile": profile
+    })
+
+@login_required
+def edit(request):
+    profile = Profile.objects.get(user = request.user)
+    return render(request, 'edit.html', {
+        "profile": profile
+    })
+
+@login_required
+def edit_after(request):
+    profile = Profile.objects.get(user = request.user)
+    return render(request, 'edit_after.html', {
+        "profile": profile
+    }
+    )
+
+@login_required
+def horoscope(request):
+    profile = Profile.objects.get(user = request.user)
+    return render(request, 'horoscope.html', {
+        "profile": profile
+    })
+
+def matches(request):
+    return render(request, 'matches.html')
+
+def intro_one(request):
+    return render(request, 'intro/intro_one.html')
+
+def intro_two(request):
+    return render(request, 'intro/intro_two.html')
+
+def intro_three(request):
+    return render(request, 'intro/intro_three.html')
+
+def questions_one(request):
+    return render(request, 'questions/questions_one.html')
+
+def questions_two(request):
+    return render(request, 'questions/questions_two.html')
+
+def questions_three(request):
+    return render(request, 'questions/questions_three.html')
+
+def questions_matches(request):
+    return render(request, 'questions/questions_matches.html')
+
+
+
+
+# @login_required
+# def add_photo(request, profile_id):
+#     photo_file = request.FILES.get('photo-file', None)
+#     if photo_file:
+#         s3 = boto3.client('s3')
+#         key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+#         try:
+#           s3.upload_fileobj(photo_file, BUCKET, key)
+#           url = f"{S3_BASE_URL}{BUCKET}/{key}"
+#           photo = Photo(url=url, character_id=profile_id)
+#           photo.save()
+#         except:
+#             print('An error occurred uploading file to S3')
+#     return redirect('detail', character_id=character_id)
+
+
+# ask where this is from 
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      form.save() #change from user=form.save
+      # This is how we log a user in via code
+      login(request)
+      return redirect('profile/')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
