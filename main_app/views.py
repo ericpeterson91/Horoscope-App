@@ -68,7 +68,7 @@ def matches(request):
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
-    fields = ['first_name', 'last_name', 'instagram_url']
+    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles']
     success_url = '/horoscope/new'
 
     def form_valid(self, form):
@@ -91,7 +91,7 @@ class HoroscopeUpdate(LoginRequiredMixin, UpdateView):
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
-    fields = ['first_name', 'last_name', 'instagram_url']
+    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles']
     success_url = '/profile/'
 
 class ProfileDelete(DeleteView):
@@ -181,21 +181,21 @@ def questions_matches(request):
 
 # ask where this is from 
 
-# def signup(request):
-#   error_message = ''
-#   if request.method == 'POST':
-#     # This is how to create a 'user' form object
-#     # that includes the data from the browser
-#     form = UserCreationForm(request.POST)
-#     if form.is_valid():
-#       # This will add the user to the database
-#       form.save() #change from user=form.save
-#       # This is how we log a user in via code
-#       login(request)
-#       return redirect('profile/')
-#     else:
-#       error_message = 'Invalid sign up - try again'
-#   # A bad POST or a GET request, so render signup.html with an empty form
-#   form = UserCreationForm()
-#   context = {'form': form, 'error_message': error_message}
-#   return render(request, 'registration/signup.html', context)
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      form.save() #change from user=form.save
+      # This is how we log a user in via code
+      login(request)
+      return redirect('profile/')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
