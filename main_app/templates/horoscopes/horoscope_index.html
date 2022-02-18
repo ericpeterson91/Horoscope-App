@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<p class="horoscope-title">Tap a horoscope to learn more</p>
+<br />
+<div class="horoscope-container">
+  <div>
+    <a href="{% url 'aries' %}"><img src="{% static 'horoscopes/aries.svg' %}" alt="" /></a>
+    <p class="grid-item">Aries</p>
+  </div>
+  <div>
+    <a href="{% url 'taurus' %}"><img src="{% static 'horoscopes/taurus.svg' %}" alt="" /></a>
+    <p class="grid-item">Taurus</p>
+  </div>
+  <div>
+    <a href="{% url 'gemini' %}"><img src="{% static 'horoscopes/gemini.svg' %}" alt="" /></a>
+    <p class="grid-item">Gemini</p>
+  </div>
+  <div>
+    <a href="{% url 'cancer' %}"><img src="{% static 'horoscopes/cancer.svg' %}" alt="" /></a>
+    <p class="grid-item">Cancer</p>
+  </div>
+  <div>
+    <a href="{% url 'leo' %}"><img src="{% static 'horoscopes/leo.svg' %}" alt="" /></a>
+    <p class="grid-item">Leo</p>
+  </div>
+  <div>
+    <a href="{% url 'virgo' %}"><img src="{% static 'horoscopes/virgo.svg' %}" alt="" /></a>
+    <p class="grid-item">Virgo</p>
+  </div>
+  <div>
+    <a href="{% url 'libra' %}"><img src="{% static 'horoscopes/libra.svg' %}" alt="" /></a>
+    <p class="grid-item">Libra</p>
+  </div>
+  <div>
+    <a href="{% url 'scorpio' %}"><img src="{% static 'horoscopes/scorpio.svg' %}" alt="" /></a>
+    <p class="grid-item">Scorpio</p>
+  </div>
+  <div>
+    <a href="{% url 'sagitarius' %}"><img src="{% static 'horoscopes/sagitarius.svg' %}" alt="" /></a>
+    <p class="grid-item">Sagitarius</p>
+  </div>
+  <div>
+    <a href="{% url 'capricorn' %}"><img src="{% static 'horoscopes/capricorn.svg' %}" alt="" /></a>
+    <p class="grid-item">Capricorn</p>
+  </div>
+  <div>
+    <a href="{% url 'aquarius' %}"><img src="{% static 'horoscopes/aquarius.svg' %}" alt="" /></a>
+    <p class="grid-item">Aquarius</p>
+  </div>
+  <div>
+    <a href="{% url 'pisces' %}"><img src="{% static 'horoscopes/pisces.svg' %}" alt="" /></a>
+    <p class="grid-item">Pisces</p>
+  </div>
+</div>
+
+<div class="bottom-nav-container">
+  <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
+  <div><a class="nav" href="{% url 'profile' %}">PROFILE</a></div>
+  <div><a class="nav" href="">LOG OUT</a></div>
+</div>
+
+<!-- Maybe add a button here depending on what we do for horoscope functionality -->
+
+<!-- <a href="{% url 'questions_two' %}">Questions 2</a> -->
+
+{% endblock %}

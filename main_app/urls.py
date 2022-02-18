@@ -19,11 +19,23 @@ urlpatterns = [
     path('intro_one/', views.intro_one, name="intro_one"),
     path('intro_two/', views.intro_two, name="intro_two"),
     path('intro_three/', views.intro_three, name="intro_three"),
-    path('questions_one/', views.questions_one, name="questions_one"),
     path('questions_two/', views.questions_two, name="questions_two"),
     path('questions_three/', views.questions_three, name="questions_three"),
     path('questions_matches/', views.questions_matches, name="questions_matches"),
 
+    path('horoscope_index/', views.horoscope_index, name="horoscope_index"),
+    path('aries/', views.aries, name="aries"),
+    path('taurus/', views.taurus, name="taurus"),
+    path('gemini/', views.gemini, name="gemini"),
+    path('cancer/', views.cancer, name="cancer"),
+    path('leo/', views.leo, name="leo"),
+    path('virgo/', views.virgo, name="virgo"),
+    path('libra/', views.libra, name="libra"),
+    path('scorpio/', views.scorpio, name="scorpio"),
+    path('sagitarius/', views.sagitarius, name="sagitarius"),
+    path('capricorn/', views.capricorn, name="capricorn"),
+    path('aquarius/', views.aquarius, name="aquarius"),
+    path('pisces/', views.pisces, name="pisces"),
 
 
     path('accounts/', include('django.contrib.auth.urls'))
