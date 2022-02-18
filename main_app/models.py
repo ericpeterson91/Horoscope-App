@@ -17,7 +17,7 @@ class Profile(models.Model):
     profile_pic = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
     first_name = models.CharField(max_length=50, default='')
     last_name = models.CharField(max_length=50, default='')
-    social_handles = models.CharField(max_length=500, default='', blank=True)
+    instagram_url = models.CharField(max_length=500, default='', blank=True)
 
 class Horoscope(models.Model):
     CAPRICORN = 'CP'

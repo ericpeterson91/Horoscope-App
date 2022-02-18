@@ -68,7 +68,7 @@ def matches(request):
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
-    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles']
+    fields = ['first_name', 'last_name', 'instagram_url']
     success_url = '/horoscope/new'
 
     def form_valid(self, form):
@@ -91,7 +91,7 @@ class HoroscopeUpdate(LoginRequiredMixin, UpdateView):
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
-    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles']
+    fields = ['first_name', 'last_name', 'instagram_url']
     success_url = '/profile/'
 
 class ProfileDelete(DeleteView):

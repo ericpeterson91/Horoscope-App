@@ -70,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AstroClub.wsgi.application'
 
-
+SECRET_KEY = 'django-insecure-5u28-2_94ysw&$quumenj9)voru5+pkc%qgoyg9a2o%b^4l(*!'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -113,7 +113,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-SECRET_KEY = 'django-insecure-5u28-2_94ysw&$quumenj9)voru5+pkc%qgoyg9a2o%b^4l(*!'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
