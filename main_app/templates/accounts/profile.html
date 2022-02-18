@@ -3,11 +3,11 @@
 
 {% block content %}
 
-<div class="profile">
-    <h2 style="text-align: center; margin-bottom: 15px;">{{user.username}}</h2>
-    <a href="{% url 'profile_update' profile.id %}">Edit Profile</a><br>
-    <a href="{% url 'horoscope_update' user.horoscope.id %}">Edit Horoscope</a><br>
-    <a href="{% url 'profile_delete' profile.id %}">Delete Profile</a><br>
+<div class="intro-container">
+    <h1 style="text-align: center; margin-bottom: 35px;">{{user.username.capitalize}}</h2>
+    <a style=" color: #333333;" href="{% url 'profile_update' profile.id %}">Edit Profile</a><br>
+    <a style=" color: #333333;" href="{% url 'horoscope_update' user.horoscope.id %}">Edit Horoscope</a><br>
+    <a style=" color: #333333;" href="{% url 'profile_delete' profile.id %}">Delete Profile</a><br>
 </div>
 
 <!-- <div class="no-pic">
@@ -26,19 +26,18 @@
 
 <p class="edit-title">SIGN: {{user.horoscope.horoscope}}</p>
 <p class="edit-title">HOBBIES</p>
-<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
 <div class="profile-details">Hobbies go here</div>
 <p class="edit-title">FAVOURITE MOVIES</p>
-<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
 <div class="profile-details">Movie info goes here</div>
 <p class="edit-title">FAVOURITE FOODS</p>
-<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
 <div class="profile-details">Food info goes here</div>
 <p class="edit-title">SOCIAL MEDIA</p>
-<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
-<div class="profile-details">{{user.username}}@social.com</div>
-    <!-- <img class="ig" style="display: inline"src="{% static 'images/ig.svg' %}" alt=""> -->
-
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+<div class="profile-details"><img class="ig" style="display: inline;" src="{% static 'images/ig.svg' %}" alt="">{{user.username}}@social.com
+</div>
 <div class="bottom-nav-container">
     <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
     <div><a class="nav" href="{% url 'profile' %}">PROFILE</a></div>

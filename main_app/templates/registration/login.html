@@ -3,12 +3,12 @@
 {% block content %}
 
 
-<h1>Log in</h1>
+<h1 class="started">Log in</h1>
 
-<form style="padding: 20px;" method="post" action="{% url 'login' %}">
+<form style="padding: 20px;" class="intro-form" method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <input style="padding: 20px;" type="submit" class="btn" value="login">
+    <input  type="submit" class="continue-button" value="LOGIN">
     <input type="hidden" name="next" value="{{ next }}">
   </form>
 
