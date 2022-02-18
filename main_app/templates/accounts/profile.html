@@ -12,19 +12,7 @@
     <a style=" color: #333333;" href="{% url 'profile_delete' profile.id %}">Delete Profile</a></div><br>
 </div>
 
-<!-- <div class="no-pic">
-    {% if profile.profile_pic %}
-        <img style="width: 150px; height: 150px; border-radius: 50%;" src="{{ profile.profile_pic.url }}" alt="">
-    {% else %}
-        <h3>No photo uploaded</h3>
-        <form action="{" enctype="multipart/form-data" method="POST" class="card-panel">
-            {% csrf_token %}
-            <input type="file" name="photo-file">
-            <br><br>
-            <input type="submit" class="btn" value="Upload Photo">
-        </form>
-    {% endif %}
-</div> -->
+
 
 <p class="edit-title">SIGN: {{user.horoscope.horoscope}}</p>
 <p class="edit-title">HOBBIES</p>
@@ -47,7 +35,6 @@
     <div><a class="nav" href="{% url 'home' %} ">LOG OUT</a></div>
 </div>
 <script>
-    // Add a variable and a template literal that feeds into the string below the user's actual sign
     
     let horoscope = document.querySelector('#api')
     let horoscopeNum = document.querySelector('#apinum')

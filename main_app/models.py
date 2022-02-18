@@ -1,5 +1,4 @@
-# from socket import PACKET_HOST
-# from typing_extensions import Required
+
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User

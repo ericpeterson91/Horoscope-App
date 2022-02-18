@@ -224,7 +224,6 @@ body {
 
     .ig {
         display: block;
-        /* margin-left: 20px; */
         margin-top: 15px;
     }
     .ig-container{
@@ -243,7 +242,7 @@ body {
     input[type=placeholder] {
         color: grey;
     }
-    /* style these placeholders later */
+    
 
     .continue-button {
         display: block;
