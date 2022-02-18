@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="profile">
+    <h2 style="text-align: center; margin-bottom: 15px;">{{user.username}}</h2>
+    <a href="{% url 'profile_update' profile.id %}">Edit Profile</a><br>
+    <a href="{% url 'horoscope_update' user.horoscope.id %}">Edit Horoscope</a><br>
+    <a href="{% url 'profile_delete' profile.id %}">Delete Profile</a><br>
+</div>
+
+<div class="no-pic">
+    {% if profile.profile_pic %}
+        <img style="width: 150px; height: 150px; border-radius: 50%;" src="{{ profile.profile_pic.url }}" alt="">
+    {% else %}
+        <h3>No photo uploaded</h3>
+        <form action="{% url 'add_photo' %}" enctype="multipart/form-data" method="POST" class="card-panel">
+            {% csrf_token %}
+            <input type="file" name="photo-file">
+            <br><br>
+            <input type="submit" class="btn" value="Upload Photo">
+        </form>
+    {% endif %}
+</div>
+
+<p class="edit-title">SIGN: {{user.horoscope.horoscope}}</p>
+<p class="edit-title">HOBBIES</p>
+<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<div class="profile-details">Hobbies go here</div>
+<p class="edit-title">FAVOURITE MOVIES</p>
+<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<div class="profile-details">Movie info goes here</div>
+<p class="edit-title">FAVOURITE FOODS</p>
+<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<div class="profile-details">Food info goes here</div>
+<p class="edit-title">SOCIAL MEDIA</p>
+<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<div class="profile-details">{{user.username}}@social.com</div>
+    <!-- <img class="ig" style="display: inline"src="{% static 'images/ig.svg' %}" alt=""> -->
+
+<div class="bottom-nav-container">
+    <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
+    <div><a class="nav" href="{% url 'profile' %}">PROFILE</a></div>
+    <div><a class="nav" href="">LOG OUT</a></div>
+</div>
+<script>
+    // Add a variable and a template literal that feeds into the string below the user's actual sign
+    
+    let horoscope = document.querySelector('#api')
+    let horoscopeNum = document.querySelector('#apinum')
+
+    fetch("https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=capricorn&day=today", {
+	"method": "POST",
+	"headers": {
+		"x-rapidapi-host": "sameer-kumar-aztro-v1.p.rapidapi.com",
+		"x-rapidapi-key": "f8b2763b42msh1e3e6fc2c58638dp1e89bbjsn4c0e49670f6d"
+	}
+})
+.then(res=>res.json())
+.then(data => {
+	horoscope.innerHTML = data.description
+    horoscopeNum.innerHTML = data.lucky_time
+})
+.catch(err => {
+	console.error(err);
+});
+</script>
+
+
+{% endblock %}

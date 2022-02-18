@@ -120,12 +120,12 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # LOGIN_REDIRECT_URL = '/accounts/profile/'
-LOGIN_REDIRECT_URL = '/accounts/profile/'
+# LOGIN_REDIRECT_URL = '/accounts/profile/'
 
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static')
 ]
-LOGIN_REDIRECT_URL = '/questions_one/'
+LOGIN_REDIRECT_URL = '/profile/'
 
 LOGOUT_REDIRECT_URL = '/'
 
