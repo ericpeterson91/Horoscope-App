@@ -10,7 +10,7 @@
     <a href="{% url 'profile_delete' profile.id %}">Delete Profile</a><br>
 </div>
 
-<div class="no-pic">
+<!-- <div class="no-pic">
     {% if profile.profile_pic %}
         <img style="width: 150px; height: 150px; border-radius: 50%;" src="{{ profile.profile_pic.url }}" alt="">
     {% else %}
@@ -22,7 +22,7 @@
             <input type="submit" class="btn" value="Upload Photo">
         </form>
     {% endif %}
-</div>
+</div> -->
 
 <p class="edit-title">SIGN: {{user.horoscope.horoscope}}</p>
 <p class="edit-title">HOBBIES</p>
