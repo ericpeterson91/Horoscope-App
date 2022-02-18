@@ -26,6 +26,5 @@ urlpatterns = [
 
 
 
-    path('add_photo/', views.add_photo, name='add_photo'),
     path('accounts/', include('django.contrib.auth.urls'))
 ]

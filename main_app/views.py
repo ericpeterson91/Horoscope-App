@@ -94,15 +94,15 @@ def matches(request):
         matches = User.objects.filter(
             Q(horoscope__horoscope = 'CP') | Q(horoscope__horoscope = 'CA') | Q(horoscope__horoscope = 'TA') | Q(horoscope__horoscope = 'SC'))[:3]
         print(matches)
-        # sign_text = request.match.horoscope.horoscope
-        # if sign_text =='CP':
-        #     request.match.horoscope.text = 'Capricorn'
-        # if sign_text =='CA':
-        #     request.match.horoscope.text = 'Cancer' 
-        # if sign_text =='TA':
-        #     request.match.horoscope.text = 'Taurus'
-        # if sign_text =='SC':
-        #     request.match.horoscope.text = 'Scorpio'
+        sign_text = request.match.horoscope.horoscope
+        if sign_text =='CP':
+            request.match.horoscope.text = 'Capricorn'
+        if sign_text =='CA':
+            request.match.horoscope.text = 'Cancer' 
+        if sign_text =='TA':
+            request.match.horoscope.text = 'Taurus'
+        if sign_text =='SC':
+            request.match.horoscope.text = 'Scorpio'
         return render(request, 'matches.html', { 'matches': matches, 'user': request.user })
     if user_sign == 'AR' or user_sign == 'LI':
         matches = User.objects.filter(
