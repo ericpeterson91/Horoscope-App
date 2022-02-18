@@ -3,11 +3,13 @@
 
 {% block content %}
 
+<div class="profile">PROFILE<span class="edit-btn"><a href="{% url 'profile_update' profile.id %}"><img src="{% static 'images/edit-btn.svg' %}" alt=""></a></span>
+</div>
+
 <div class="intro-container">
-    <h1 style="text-align: center; margin-bottom: 35px;">{{user.username.capitalize}}</h2>
-    <a style=" color: #333333;" href="{% url 'profile_update' profile.id %}">Edit Profile</a><br>
-    <a style=" color: #333333;" href="{% url 'horoscope_update' user.horoscope.id %}">Edit Horoscope</a><br>
-    <a style=" color: #333333;" href="{% url 'profile_delete' profile.id %}">Delete Profile</a><br>
+    <h2 style="text-align: center; margin-bottom: 25px;">{{user.username.capitalize}}</h2>
+        <div style="display: flex; gap: 30px;"><a style=" color: #333333;" href="{% url 'horoscope_update' user.horoscope.id %}">Edit Horoscope</a><br>
+    <a style=" color: #333333;" href="{% url 'profile_delete' profile.id %}">Delete Profile</a></div><br>
 </div>
 
 <!-- <div class="no-pic">
@@ -36,7 +38,7 @@
 <div class="profile-details">Food info goes here</div>
 <p class="edit-title">SOCIAL MEDIA</p>
 <img class="line" src="{% static 'images/small-line.svg' %}" alt="">
-<div class="profile-details"><img class="ig" style="display: inline;" src="{% static 'images/ig.svg' %}" alt="">{{user.username}}@social.com
+<div class="profile-details"><img class="ig" style="display: inline;" src="{% static 'images/ig.svg' %}" alt=""> - >{{user.username}}@social.com
 </div>
 <div class="bottom-nav-container">
     <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
