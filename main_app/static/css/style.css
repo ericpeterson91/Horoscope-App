@@ -377,6 +377,7 @@
     .nav {
         color: var(--dark-grey); 
         font-size: 14px;
+        letter-spacing: 1.2px;
     }
 
     .nav:visited {
