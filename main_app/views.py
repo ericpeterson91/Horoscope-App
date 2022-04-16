@@ -28,8 +28,8 @@ def libra(request):
 def scorpio(request):
     return render(request, 'horoscopes/scorpio.html')
 
-def sagitarius(request):
-    return render(request, 'horoscopes/sagitarius.html')
+def sagittarius(request):
+    return render(request, 'horoscopes/sagittarius.html')
 
 def capricorn(request):
     return render(request, 'horoscopes/capricorn.html')

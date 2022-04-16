@@ -745,7 +745,7 @@
 
     .bottom-nav-container {
         position: absolute;
-        bottom: 10px;
+        bottom: 15px;
         height: 49px;
         display: flex;
         justify-content: space-evenly;
@@ -757,6 +757,7 @@
     .nav {
         color: var(--dark-grey); 
         font-size: 24px;
+        letter-spacing: 1.2px;
     }
 
     .nav:visited {
