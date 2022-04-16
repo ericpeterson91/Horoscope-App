@@ -364,7 +364,7 @@
 
     .bottom-nav-container {
         /* position: absolute; */
-        margin-top: 40px;
+        margin-top: 20px;
         bottom: 0;
         height: 49px;
         display: flex;
