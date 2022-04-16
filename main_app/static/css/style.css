@@ -363,7 +363,8 @@
     }
 
     .bottom-nav-container {
-        position: absolute;
+        /* position: absolute; */
+        margin-top: 40px;
         bottom: 0;
         height: 49px;
         display: flex;
@@ -767,11 +768,11 @@
         right: 29px;
     }
 
-    .span {
+    /* .span {
         display: none;
     }
 
     .span:after {
         content: 'Click';
-    }
+    } */
 }
