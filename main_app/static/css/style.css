@@ -11,12 +11,6 @@
     --background: #FBF1EF;
 }
 
-/* 
-body {
-    
-    background-color: black;
-    
-} */
 
 @media only screen and (max-width: 499px){
     
@@ -650,8 +644,6 @@ body {
         justify-content: center;
         justify-items: center;
         align-content: center;
-        
-        /* flex-wrap: wrap; */
         row-gap: 30px;
         column-gap: 30px;
     }
@@ -773,5 +765,13 @@ body {
     .edit-btn {
         position: absolute;
         right: 29px;
+    }
+
+    .span {
+        display: none;
+    }
+
+    .span:after {
+        content: 'Click';
     }
 }
