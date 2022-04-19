@@ -10,14 +10,6 @@ Python, Django, HTML, CSS, JavaScript, Rapid API
 
 # Link to App Hosted on Heroku
 
-https://astro-club.herokuapp.com/
+https://django-horoscope-app.herokuapp.com/
 
-# Link to Trello Board
 
-https://trello.com/b/VbHYhN6g/astro-club
-
-# Ice Box
-
-Chat Functionality
-
-Fix Bugs
