@@ -252,12 +252,22 @@
         border: none;
     }
 
-    .horoscope-title {
+    .horoscope-title-large {
         margin-top: 50px;
         margin-bottom: 25px;
         text-align: center;
         font-size: 24px;
         color: var(--dark-grey);
+        display: none;
+    }
+
+    .horoscope-title-small {
+        margin-top: 50px;
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 24px;
+        color: var(--dark-grey);
+        display: block;
     }
 
     .horoscope-container {
@@ -632,12 +642,22 @@
         border: none;
     }
 
-    .horoscope-title {
+    .horoscope-title-large {
         margin-top: 50px;
         margin-bottom: 25px;
         text-align: center;
         font-size: 32px;
         color: var(--dark-grey);
+        display: block;
+    }
+
+    .horoscope-title-small {
+        margin-top: 50px;
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 24px;
+        color: var(--dark-grey);
+        display: none;
     }
 
     .horoscope-container {
